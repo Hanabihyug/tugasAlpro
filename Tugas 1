@@ -1,11 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <time.h>
 
-int Bulan(char *m){
-    
-}
 
 int main(){
     char nama[50], alamat[100], m[30], nim[30], nohp[15], kelas[3];
