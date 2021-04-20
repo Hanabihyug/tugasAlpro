@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#define maxS 255
+
+int palindromeCeck(int n, char *kata);
+
+int main(){
+    char kata[maxS];
+    int n, hasil;
+    
+    printf("Inputkan kata atau kalimat : ");gets(kata);
+    n = strlen(kata);
+    if(hasil == 0){
+        printf("Ini Palindrome");
+    }else{
+        //jika tidak
+        printf("Ini Bukan Palindrom");
+    }
+}
+
+int palindromeCeck(int n, char *kata){
+    char temp[maxS];
+    int j = 0;
+
+    for(int i = 0; kata[i]; i++){
+        kata[i] = tolower(kata[i]);
+    }
+
+    for(int i = n-1; i >= 0; i--){
+        //disini kita akan menggunakan 
+        temp[j] = kata[i];
+        j++;
+    }
+    return strcmp(kata,temp);
+}
