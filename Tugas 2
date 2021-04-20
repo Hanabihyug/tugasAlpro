@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main(){
+
+    int n, integerUlang = 0, remainder, integerAsli;
+
+    printf("Masukkan angka bilangan : "); scanf ("%d", &n);
+
+    integerAsli = n;
+
+    // Bilangan yang dibalik disimpan dalam variabel
+
+    while(n!=0)
+    {
+        remainder = n%10;
+        integerUlang = integerUlang = integerUlang*10 + remainder;
+        n /= 10;
+    }
+
+    if (integerAsli == integerUlang)
+    {
+        printf("%d adalah bilangan palindrom.", integerAsli);
+    }
+    else
+    {
+        printf("%d bukan bilangan palindrom.\n", integerAsli);
+    }
+    return 0;
+}
