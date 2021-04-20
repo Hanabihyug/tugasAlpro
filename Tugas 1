@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <time.h>
+
+int Bulan(char *m){
+    
+}
+
+int main(){
+    char nama[50], alamat[100], m[30], nim[30], nohp[15], kelas[3];
+    int b, tgl, thn, tgl2,h;
+
+    printf("\nMasukkan data diri Anda\n");
+    printf("-----------------------\n\n");
+
+    fflush(stdin);
+    printf("Nama : ");gets(nama);
+    printf("NIM : ");gets(nim);
+    printf("Kelas : ");gets(kelas);
+    printf("Alamat : ");gets(alamat);
+    fflush(stdin);
+    printf("No. Hp : ");gets(nohp);
+    printf("Tanggal Lahir : ");scanf("%d %s %d", &tgl, &m, &thn);
+
+    if (strcmp(m, "Januari") == 0){
+        b = 1;
+    } else if (strcmp(m, "Februari") == 0){
+        b = 2;
+    } else if (strcmp(m, "Maret") == 0){
+        b = 3;
+    } else if (strcmp(m, "April") == 0){
+        b = 4;
+    } else if (strcmp(m, "Mei") == 0){
+        b = 5;
+    } else if (strcmp(m, "Juni") == 0){
+        b = 6;
+    } else if (strcmp(m, "Juli") == 0){
+        b = 7;
+    } else if (strcmp(m, "Agustus") == 0){
+        b = 8;
+    } else if (strcmp(m, "September") == 0){
+        b = 9;
+    } else if (strcmp(m, "Oktober") == 0){
+        b = 10;
+    } else if (strcmp(m, "November") == 0){
+        b = 11;
+    } else if (strcmp(m, "Desember") == 0){
+        b = 12;
+    }
+
+    h = tgl + b * 31 + thn * 365;
+    tgl2 = 16 + 2 * 31 + 2021 *365;
+    h = (tgl2 - h)/365;
+
+    printf("\n-----------------------------+\n");
+
+        printf("Nama : %s", nama);
+        printf("\nNIM : %s", nim);
+        printf("\nKelas: %s", kelas);
+        printf("\nAlamat : %s", alamat);
+        printf("\nNo. Hp : %s", nohp);
+        printf("\nTanggal Lahir : %d %s %d", tgl, m, thn);
+        printf("\nUmur : %d", h);
+}
