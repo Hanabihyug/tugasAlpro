@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#define max 999
+
+int cek(char kata[]);
+
+int main()
+{
+    char kata[max];
+    int kotak;
+    char ulangi = 'Y';
+    while(toupper(ulangi) == 'Y')
+    {
+        printf("Masukkan kalimat atau kata: ");
+        fflush(stdin);
+        gets(kata);
+        kotak = cek(strlwr(kata));
+        printf("%s adalah %s", kata, kotak == 0 ? "palidrome" : "bukan palidrome");
+        printf("\n=====================================================\nApakah anda ingin memeriksa kata atau kalimat lain? (y,n)\n");
+        scanf("%s", &ulangi);
+    }
+    return 0;
+}
+
+int cek(char kata[]){
+    char balik[max];
+    int i, str, jum = 0,kotak;
+    while (kata[jum] != '\0')
+    {
+        jum++;
+    }
+    str = jum - 1;
+    for (i = 0; i < jum; i++)
+    {
+        balik[i] = kata[str];
+        str--;
+    }
+    balik[i] = '\0';
+    return strcmp(balik,kata);
+}
