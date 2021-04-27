@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct data
+{
+    char movie[100];
+    float rate;
+}x[100];
+
+int main()
+{
+    struct data temp;
+    FILE *fp;
+    FILE *fasc;
+    FILE *fdsc;
+    int i = 0, size, j,mode;
+    char ch;
+
+    fp = fopen("movie.txt", "r");
+    if (fp == NULL)
+    {
+        printf("\n Cannot open the file \n");
+        exit(0);
+    }
+    while (ch != EOF)
+    {
+        fscanf(fp, "%s %f", &x[i].movie, &x[i].rate);
+        printf("%s %f\n", x[i].movie, x[i].rate);
+        ch = fgetc(fp);
+        i++;
+    }
+    size = i - 1;
+
+        //ascending
+        for (i = 1; i < size; ++i)
+            for (j = 0; j < size - i; j++)
+                if (x[j + 1].rate < x[j].rate)
+                {
+                    temp = x[j];
+                    x[j] = x[j + 1];
+                    x[j + 1] = temp;
+                }
+        //hasil ascending
+        fasc = fopen("ascending.txt", "w");
+        puts("\nAscending:");
+        for (i = 0; i < size; i++){
+            printf("%s %f \n", x[i].movie, x[i].rate);
+            fprintf(fasc, "%s %f \n", x[i].movie, x[i].rate);
+        }
+        printf("\nThe file is sorted successfully in ascending and saved as ascending.txt. \n \n");
+
+    //descending
+
+        for (i = 1; i < size; ++i)
+            for (j = 0; j < size - i; j++)
+                if (x[j + 1].rate > x[j].rate)
+                {
+                    temp = x[j];
+                    x[j] = x[j + 1];
+                    x[j + 1] = temp;
+                }
+            //hasil descen
+            fdsc = fopen("descending.txt", "w");
+            puts("\nDescending:");
+            for (i = 0; i < size; i++){
+                printf("%s %f \n", x[i].movie, x[i].rate);
+                fprintf(fdsc, "%s %f \n", x[i].movie, x[i].rate);
+            }
+                printf("\nThe file is sorted successfully in descending and saved as descending.txt. \n \n");
+
+    fclose(fp);    
+    fclose(fasc);
+    fclose(fdsc);
+    return 0;
+}
